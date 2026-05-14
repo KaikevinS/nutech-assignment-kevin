@@ -5,6 +5,7 @@ require('dotenv').config();
 const pool = require('./config/db');
 
 // Route
+const memberRoutes = require('./routes/member');
 const infoRoutes = require('./routes/info');
 
 const app = express();
@@ -24,6 +25,7 @@ pool.connect((err, client, release) => {
 });
 
 
+app.use('/', memberRoutes);
 app.use('/', infoRoutes);
 
 // 404 Fallback
