@@ -25,6 +25,7 @@ pool.connect((err, client, release) => {
   release();
 });
 
+// Assign Routes
 app.use('/', memberRoutes);
 app.use('/', infoRoutes);
 app.use('/', transaksiRoutes);
