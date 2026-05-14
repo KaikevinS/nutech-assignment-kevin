@@ -60,8 +60,7 @@ const register = async (req, res) => {
 
     // Masukan User
     const insertUserQuery = `
-      INSERT INTO user_table (email, first_name, last_name, password) 
-      VALUES ($1, $2, $3, $4) RETURNING id
+      INSERT INTO user_table (email, first_name, last_name, password) VALUES ($1, $2, $3, $4) RETURNING id
     `;
     const userResult = await user.query(insertUserQuery, [email, first_name, last_name, hashedPassword]);
     const userId = userResult.rows[0].id;

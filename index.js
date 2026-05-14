@@ -7,6 +7,7 @@ const pool = require('./config/db');
 // Route
 const memberRoutes = require('./routes/member');
 const infoRoutes = require('./routes/info');
+const transaksiRoutes = require('./routes/transaksi');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,9 +25,9 @@ pool.connect((err, client, release) => {
   release();
 });
 
-
 app.use('/', memberRoutes);
 app.use('/', infoRoutes);
+app.use('/', transaksiRoutes);
 
 // 404 Fallback
 app.use((req, res) => {
